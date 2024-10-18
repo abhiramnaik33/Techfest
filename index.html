@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Fest at GMU</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHq6zpG0Jb0Xa0ngBtKMjY5rAQH0E6o3N8v9eF7vYL8fJcD+hVt6hbm5Qz0Qy6jZz5x5EuWA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <style>
+        /* Reset Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+
+            
+        /* Header Section */
+        .header {
+    position: relative;
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    position: absolute;
+    top: 20px; /* Adjust vertical position as needed */
+}
+
+.logo.left {
+    left: 20px; /* Adjust horizontal position as needed */
+}
+
+.logo.right {
+    right: 20px; /* Adjust horizontal position as needed */
+}
+
+.header-logo {
+    max-width: 150px; /* Adjust the size as needed */
+    height: auto;
+    /* Optional: Add some styles for the logos */
+}
+
+
+        .header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .header-content {
+            position: relative;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            color: #0ff;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .header p {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .header button {
+            padding: 15px 30px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 25px;
+            background-color: #0ff;
+            color: #121212;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .header button:hover {
+            background-color: #00e6e6;
+            transform: scale(1.05);
+        }
+
+      
+
+        /* Main Section */
+        .main {
+            padding: 60px 20px;
+            background-color: #1e1e1e;
+        }
+
+        .events-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .event-card {
+            background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 40px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+        }
+
+        .event-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            color: #0ff;
+            margin-bottom: 10px;
+        }
+
+        .event-date {
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+
+        .event-date i {
+            margin-right: 10px;
+            color: #0ff;
+        }
+
+        .event-description {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .event-guidelines {
+            margin-bottom: 20px;
+        }
+
+        .event-guidelines ul {
+            list-style: none;
+        }
+
+        .event-guidelines li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            color: #ddd;
+        }
+
+        .event-guidelines li i {
+            margin-right: 10px;
+            color: #0ff;
+        }
+
+        .register-button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 20px;
+            background-color: #0ff;
+            color: #121212;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            font-family: 'Orbitron', sans-serif;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .register-button:hover {
+            background-color: #00e6e6;
+            transform: scale(1.05);
+        }
+
+        /* Divider */
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, #0ff, #00e6e6);
+            margin: 40px 0;
+            opacity: 0.7;
+        }
+
+        /* Organizers and Sponsors Section */
+        .about-section {
+            padding: 60px 20px;
+            background-color: #1e1e1e;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: #0ff;
+            margin-bottom: 40px;
+        }
+
+        /* Organizers */
+        .organizers {
+            max-width: 1200px;
+            margin: 0 auto 60px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .organizer-card {
+            background: #2c2c2c;
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .organizer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+        }
+
+        .organizer-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .organizer-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: #0ff;
+            margin-bottom: 10px;
+        }
+
+        .organizer-bio {
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        /* Sponsors Carousel */
+        .sponsors-carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 40px;
+            padding: 20px;
+            scroll-behavior: smooth;
+        }
+
+        .sponsor-logo {
+            flex: 0 0 auto;
+            width: 200px;
+            height: 100px;
+            background: #2c2c2c;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+
+        .sponsor-logo img {
+            max-width: 90%;
+            max-height: 80%;
+            object-fit: contain;
+        }
+
+        .sponsor-logo:hover {
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 40px 20px;
+            background-color: #0f0f0f;
+            text-align: center;
+        }
+
+        .footer .social-links {
+            margin-bottom: 20px;
+        }
+
+        .footer .social-links a {
+            color: #0ff;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .footer .social-links a:hover {
+            color: #00e6e6;
+            transform: scale(1.2);
+        }
+
+        .footer .contact-button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: 2px solid #0ff;
+            border-radius: 20px;
+            background-color: transparent;
+            color: #0ff;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            font-family: 'Orbitron', sans-serif;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .footer .contact-button:hover {
+            background-color: #0ff;
+            color: #121212;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .header p {
+                font-size: 1.2rem;
+            }
+
+            .event-title {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .organizer-card {
+                width: 100%;
+            }
+
+            .sponsor-logo {
+                width: 150px;
+                height: 80px;
+            }
+
+    </style>
+</head>
+<body>
+
+
+    <!-- Header Section -->
+    <header class="header" id="home">
+
+        <div class="logo left">
+        <img src="GMU.png" alt="Left Logo" class="header-logo">
+    </div>
+    <div class="logo right">
+        <img src="SA LOGO.png" alt="Right Logo" class="header-logo">
+    </div>
+        <div class="header-content">
+            <h1>Tech Fest at G M University</h1>
+            <p>Department of Student Affairs and Technical Community</p>
+            <a href="#events"><button>Explore Events</button></a>
+        </div>
+    </header>
+
+    <!-- Main Section -->
+    <main class="main" id="events">
+        <div class="events-container">
+
+            <!-- Event Card 1 -->
+            <div class="event-card">
+                <h2 class="event-title">Hackathon </h2>
+                <div class="event-date"><i class="fas fa-calendar-alt"></i> November  11, 2024 | 0:00 PM - 0:00 PM</div>
+                <p class="event-description">Gear up for 24 hours of innovation, creativity, and coding at GM University! Push the boundaries of technology, tackle real-world challenges, and bring your boldest ideas to life in an adrenaline-packed race against the clock.</p>
+                <div class="event-guidelines">
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Team Collaboration: Teams of 3-5 members must work together. No solo submissions.</li>
+                        <li><i class="fas fa-check-circle"></i> Originality: All code and ideas must be original or open-source. Plagiarism will result in disqualification</li>
+                        <li><i class="fas fa-check-circle"></i> Final Submission: Projects must be submitted within the 24-hour window. No late entries will be accepted..</li>
+                    </ul>
+                </div>
+                <a href="https://forms.gle/1QT21WwR3kNm7jeS6" target="_blank" class="register-button">Register Now</a>
+            </div>
+
+            <!-- Event Card 2 -->
+            <div class="event-card">
+                <h2 class="event-title">Data Hunt </h2>
+                <div class="event-date"><i class="fas fa-calendar-alt"></i> November 11, 2024 | 0:00 AM - 0:00 PM</div>
+                <p class="event-description">Welcome to the Data Hunt! In this event, you’ll be given datasets and technical challenges at each stage. Your goal is to solve the challenges, analyze the data, and find the clues that will lead you to the final treasure.</p>
+                <div class="event-guidelines">
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Team Size & Time Limit: Teams must consist of 2-4 members and have [X hours] to complete the Data Hunt</li>
+                        <li><i class="fas fa-check-circle"></i> Allowed Tools & External Help: Participants can use Python, Excel, Google Sheets, or any programming tool available, but no external help beyond the internet for programming-related queries is allowed..</li>
+                        <li><i class="fas fa-check-circle"></i> Clue Submission & Winning Criteria: Teams must submit each clue for verification before moving to the next stage. The first team to complete all stages and reach the final destination wins..</li>
+                    </ul>
+                </div>
+                <a href="https://forms.gle/1QT21WwR3kNm7jeS6" target="_blank" class="register-button">Register Now</a>
+            </div>
+            
+       <div class="event-card">
+             <h2 class="event-title">Tech Expo</h2>
+                <div class="event-date"><i class="fas fa-calendar-alt"></i> November 11, 2024 | 00:00 AM - 0:00 PM</div>
+                <p class="event-description">The Tech Expo will be a one-day event where teams showcase their innovative technological ideas and working models.</p>
+                <div class="event-guidelines">
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Eligibility: Open to all students, from first-year to final-year..</li>
+                        <li><i class="fas fa-check-circle"></i> Team Size: 1-4 members per team.</li>
+                        <li><i class="fas fa-check-circle"></i> Originality: Projects must be original or show significant improvements on existing ideas. They should solve a real-world problem or showcase innovation.</li>
+                    </ul>
+                </div>
+                <a href="https://forms.gle/1QT21WwR3kNm7jeS6" target="_blank" class="register-button">Register Now</a>
+            </div>
+            <div class="event-card">
+                <h2 class="event-title">Poster Presentation</h2>
+                <div class="event-date"><i class="fas fa-calendar-alt"></i> November 11, 2024 | 00:00 AM - 0:00 PM</div>
+                <p class="event-description">Showcase your research and innovative ideas at the Poster Presentation event! Engage with the audience and experts, presenting your work through visually compelling posters for a chance to win both the People's Choice and Judged Awards.</p>
+                <div class="event-guidelines">
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i>Eligibility: Open to students from all years, from first-year to final-year</li>
+                        <li><i class="fas fa-check-circle"></i> Team Size: 1-3 members per team.</li>
+                        <li><i class="fas fa-check-circle"></i> Originality: Posters must present original research, ideas, or improvements on existing concepts. The content should focus on solving a specific problem or demonstrate innovative thinking.</li>
+                    </ul>
+                </div>
+                <a href="https://forms.gle/1QT21WwR3kNm7jeS6" target="_blank" class="register-button">Register Now</a>
+            </div>
+            <div class="event-card">
+                <h2 class="event-title">Idea Tank</h2>
+                <div class="event-date"><i class="fas fa-calendar-alt"></i> November 12, 2024 | 00:00 AM - 0:00 PM</div>
+                <p class="event-description">Unleash your creativity at the Ideathon! Pitch your bold and innovative ideas to solve real-world challenges, and compete for top honors as both the audience and expert judges decide the best solutions.</p>
+                <div class="event-guidelines">
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i>Team Size: Teams must consist of 2-5 members. No solo entries allowed.</li>
+                        <li><i class="fas fa-check-circle"></i> Originality: Ideas must be original or offer a significant improvement on existing concepts. Plagiarism will result in disqualification.</li>
+                        <li><i class="fas fa-check-circle"></i> Time Limit: Each team has 5-7 minutes to pitch their idea, followed by a brief Q&A with the judges..</li>
+                    </ul>
+                </div>
+                <a href="https://forms.gle/1QT21WwR3kNm7jeS6" target="_blank" class="register-button">Register Now</a>
+            </div>
+
+            <div class="event-card">
+                <h2 class="event-title">Blind Code Challenge</h2>
+                <div class="event-date"><i class="fas fa-calendar-alt"></i> November 12, 2024 | 0:00 AM - 0:00 PM</div>
+                <p class="event-description">Test your coding skills under pressure in the Blind Code Challenge! Compete individually to solve coding problems within a limited time frame, showcasing your problem-solving abilities and creativity without any external resources.</p>
+                <div class="event-guidelines">
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i>Team Composition: Participants must compete individually, with no collaboration allowed during the challenge.</li>
+                        <li><i class="fas fa-check-circle"></i>Original Code: All code submitted must be original work created during the challenge. Use of pre-existing code or libraries is not permitted..</li>
+                        <li><i class="fas fa-check-circle"></i>Time Constraint: Participants have a fixed time limit (e.g., 60 minutes) to complete the coding challenge, after which submissions will be evaluated.</li>
+                    </ul>
+                </div>
+                <a href="https://forms.gle/1QT21WwR3kNm7jeS6" target="_blank" class="register-button">Register Now</a>
+            </div>
+
+            <div class="event-card">
+                <h2 class="event-title">Sellthon</h2>
+                <div class="event-date"><i class="fas fa-calendar-alt"></i> November 12, 2024 | 0:00 AM - 0:00 PM</div>
+                <p class="event-description">Test your coding skills under pressure in the Blind Code Challenge! Compete individually to solve coding problems within a limited time frame, showcasing your problem-solving abilities and creativity without any external resources.</p>
+                <div class="event-guidelines">
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i>Team Composition: Participants must compete individually, with no collaboration allowed during the challenge.</li>
+                        <li><i class="fas fa-check-circle"></i>Original Code: All code submitted must be original work created during the challenge. Use of pre-existing code or libraries is not permitted..</li>
+                        <li><i class="fas fa-check-circle"></i>Time Constraint: Participants have a fixed time limit (e.g., 60 minutes) to complete the coding challenge, after which submissions will be evaluated.</li>
+                    </ul>
+                </div>
+                <a href="https://forms.gle/1QT21WwR3kNm7jeS6" target="_blank" class="register-button">Register Now</a>
+            </div>
+      
+   
+      
+            <!-- Add more event cards as needed -->
+
+            <!-- Divider -->
+            <div class="divider"></div>
+
+        </div>
+    </main>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <h2 class="section-title">Meet the Organizers & Sponsors</h2>
+
+        <!-- Organizers -->
+        <div class="organizers">
+            <!-- Organizer 1 -->
+            <div class="organizer-card">
+                <img src="maruthi.jpeg" alt="Organizer 1">
+                <h3 class="organizer-name">Maruthi S T</h3>
+                <p class="organizer-bio">Lead Organizer with a passion for merging technology and creativity.</p>
+            </div>
+            
+            <div class="organizer-card">
+                <img src="harshitha.jpeg" alt="Organizer 2">
+                <h3 class="organizer-name">Harshitha</h3>
+                <p class="organizer-bio">Tech Enthusiast and Event Coordinator.</p>
+            </div>
+
+            <div class="organizer-card">
+                <img src="ABHI.jpg" alt="Organizer 2">
+                <h3 class="organizer-name">Abhiram Naik</h3>
+                <p class="organizer-bio">Tech Enthusiast and Event Coordinator.</p>
+            </div>
+            <div class="organizer-card">
+                <img src="sudarshana.jpeg" alt="Organizer 2">
+                <h3 class="organizer-name">Sudarshana</h3>
+                <p class="organizer-bio">Tech Enthusiast and Event Coordinator.</p>
+            </div>
+          
+         
+   
+            
+            <!-- Add more organizers as needed -->
+        </div>
+
+        <!-- Sponsors Carousel -->
+        <div class="sponsors-carousel">
+            <!-- Sponsor 1 -->
+            <a href="https://sponsor1.com" target="_blank" class="sponsor-logo">
+                <img src="https://via.placeholder.com/150x80?text=Sponsor+1" alt="Sponsor 1">
+            </a>
+            <!-- Sponsor 2 -->
+            <a href="https://sponsor2.com" target="_blank" class="sponsor-logo">
+                <img src="https://via.placeholder.com/150x80?text=Sponsor+2" alt="Sponsor 2">
+            </a>
+            <!-- Sponsor 3 -->
+            <a href="https://sponsor3.com" target="_blank" class="sponsor-logo">
+                <img src="https://via.placeholder.com/150x80?text=Sponsor+3" alt="Sponsor 3">
+            </a>
+           
+            <!-- Add more sponsors as needed -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="social-links">
+            <a href="https://facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i>
+            <a href="https://twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://linkedin.com" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <a href="mailto:gmu.sa.tech@gmail.com" class="contact-button">Contact Us</a>
+        <p style="margin-top: 20px; color: #555;">&copy; 2024 Your Events. All rights reserved.</p>
+    </footer>
+    
+    <style>
+        .social-links {
+            margin-bottom: 20px;
+        }
+    
+        .social-icon {
+            display: inline-block;
+            margin: 0 10px;
+            color: #0ff;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+    
+        .social-icon:hover {
+            color: #00e6e6;
+        }
+    
+        .contact-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: 2px solid #0ff;
+            background-color: transparent;
+            color: #0ff;
+            border-radius: 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+    
+        .contact-button:hover {
+            background-color: #0ff;
+            color: #121212;
+        }
+    </style>
+    
+
+    <!-- Optional Background Music -->
+    <!-- Uncomment the below code to add background music -->
+    <!--
+    <audio id="bg-music" src="your-music-file.mp3" loop autoplay>
+        Your browser does not support the audio element.
+    </audio>
+    <button id="music-control" style="position: fixed; bottom: 20px; right: 20px; padding: 10px; border: none; border-radius: 50%; background-color: #0ff; cursor: pointer;">
+        <i class="fas fa-music"></i>
+    </button>
+    -->
+
+    <script>
+        // Smooth Scroll for "Explore Events" Button
+        document.querySelector('.header button').addEventListener('click', function() {
+            document.getElementById('events').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Optional: Background Music Control
+        /*
+        const bgMusic = document.getElementById('bg-music');
+        const musicControl = document.getElementById('music-control');
+
+        musicControl.addEventListener('click', () => {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                musicControl.innerHTML = '<i class="fas fa-pause"></i>';
+            } else {
+                bgMusic.pause();
+                musicControl.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        });
+        */
+
+        // Organizers Modal (Optional Enhancement)
+        const organizerCards = document.querySelectorAll('.organizer-card');
+
+        organizerCards.forEach(card => {
+            card.addEventListener('click', () => {
+                alert(`More information about ${card.querySelector('.organizer-name').textContent}.\n\nThis feature can be enhanced with a modal or dedicated page.`);
+            });
+        });
+
+        // Sponsors Carousel Auto Scroll (Optional)
+        
+        const sponsors = document.querySelector('.sponsors-carousel');
+        let scrollAmount = 0;
+        const scrollStep = 1;
+        const scrollInterval = setInterval(() => {
+            sponsors.scrollLeft += scrollStep;
+            scrollAmount += scrollStep;
+            if (scrollAmount >= sponsors.scrollWidth / 2) {
+                clearInterval(scrollInterval);
+            }
+        }, 20);
+        
+    </script>
+</body>
+</html>
